@@ -1,7 +1,10 @@
 package semeval.coreference;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import salsa.corpora.elements.Corpus;
@@ -106,9 +109,21 @@ public class CoreferenceChainsExtractor {
 		Set<CoreferenceChain> coreferenceChains = new HashSet<CoreferenceChain>();
 
 		int counter = 0;
+		
+		// just establish a stable order, whatever it is
+		List<SingleCoreferenceAnnotation> saList = new ArrayList<>(singleAnnotations);
+		Collections.sort(saList, new Comparator<SingleCoreferenceAnnotation>() {
 
+			@Override
+			public int compare(SingleCoreferenceAnnotation o1, SingleCoreferenceAnnotation o2) {
+				return o1.toString().compareTo(o2.toString());
+			}
+		});
+		// shuffle it to see how it change from time to time
+//		Collections.shuffle(saList);
 		// iteriere ueber alle SingleCoreferenceAnnotation Elemente.
-		for (SingleCoreferenceAnnotation currentAnnotation : singleAnnotations) {
+//		for (SingleCoreferenceAnnotation currentAnnotation : singleAnnotations) {
+		for (SingleCoreferenceAnnotation currentAnnotation : saList) {
 
 			CoreferenceChain currentCoreferenceChain = null;
 
