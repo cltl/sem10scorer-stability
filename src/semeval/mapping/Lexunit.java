@@ -1,0 +1,109 @@
+package semeval.mapping;
+
+public class Lexunit {
+	
+	String id;
+	
+	String name;
+	
+	String pos;
+	
+	String lexemeId;
+	
+	String lexemeName;
+	
+	String lexemePos;
+	
+	String frameName;
+	
+	public Lexunit(String id, String name, String pos, String frameName) {
+		
+		this.id = id;
+		this.name = name;
+		this.pos = pos;
+		this.frameName = frameName;
+	}
+	
+	public Lexunit(String id, String name, String pos, String frameName, String lexemeId, String lexemeName, String lexemePos)
+	{
+		
+		this.id = id;
+		this.name = name;
+		this.pos = pos;
+		this.lexemeId = lexemeId;
+		this.lexemeName = lexemeName;
+		this.lexemePos = lexemePos;
+		this.frameName = frameName;
+	}
+
+	public String getLexemeId() {
+		return lexemeId;
+	}
+
+	public void setLexemeId(String lexemeId) {
+		this.lexemeId = lexemeId;
+	}
+
+	public String getLexemeName() {
+		return lexemeName;
+	}
+
+	public void setLexemeName(String lexemeName) {
+		this.lexemeName = lexemeName;
+	}
+
+	public String getLexemePos() {
+		return lexemePos;
+	}
+
+	public void setLexemePos(String lexemePos) {
+		this.lexemePos = lexemePos;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public String getFrameName() {
+		return frameName;
+	}
+	
+	
+
+	public String getPos() {
+		return pos;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final Lexunit other = (Lexunit) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+}

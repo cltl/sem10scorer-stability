@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="jar" name="Create Runnable Jar for Project sem10scorer-stability">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+	<!-- <property name="dir.workspace" value="/Users/cumeo/workspace"/> -->
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac encoding="iso-8859-1" srcdir="src" destdir="bin"/>
+    </target>
+
+ 	
+	<target name="jar">
+        <jar destfile="${dir.jarfile}/sem10scorer.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="semeval.evaluation.Evaluate"/>
+                <!-- <attribute name="Class-Path" value="."/> -->
+            </manifest>
+            <fileset dir="bin"/>
+        </jar>
+    </target>
+</project>
